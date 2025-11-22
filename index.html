@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Endereço - ViaCEP</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header">
+            <h1>
+                <!-- Ícone SVG simples -->
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Endereço Inteligente
+            </h1>
+            <p>Digite o CEP para preencher automaticamente.</p>
+        </div>
+
+        <form id="addressForm">
+            
+            <!-- Linha 1: CEP -->
+            <div class="form-row">
+                <div class="form-group w-medium">
+                    <label for="cep">CEP</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="cep" name="cep" maxlength="9" placeholder="00000-000" required>
+                        <div id="loading-spinner" class="spinner"></div>
+                    </div>
+                    <span id="cep-error" class="error-message">CEP não encontrado.</span>
+                    <p class="helper-text">* Aperte TAB após digitar</p>
+                </div>
+            </div>
+
+            <!-- Linha 2: Logradouro e Número -->
+            <div class="form-row">
+                <div class="form-group" style="flex: 3;">
+                    <label for="logradouro">Logradouro</label>
+                    <input type="text" id="logradouro" name="logradouro" readonly>
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label for="numero">Número</label>
+                    <input type="text" id="numero" name="numero" required>
+                </div>
+            </div>
+
+            <!-- Linha 3: Complemento e Bairro -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" id="complemento" name="complemento">
+                </div>
+                <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" id="bairro" name="bairro" readonly>
+                </div>
+            </div>
+
+            <!-- Linha 4: Cidade e UF -->
+            <div class="form-row">
+                <div class="form-group" style="flex: 4;">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" name="cidade" readonly>
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label for="uf">UF</label>
+                    <input type="text" id="uf" name="uf" readonly>
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+
+            <button type="submit" class="btn-submit">
+                Confirmar Endereço
+            </button>
+        </form>
+    </div>
